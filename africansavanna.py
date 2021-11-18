@@ -2,7 +2,7 @@ import random
 import sys
 
 print("Welcome to the African Savanna")
-print("Savanna Version is 1.0")
+print("Savanna Version is 1.1")
 print("")
 
 atree = int(input("How many Acacia trees are there? "))
@@ -71,7 +71,7 @@ while prog == "y":
     print("")
 
   if growcutgrass > 5:
-    growcutgrassamount = int(random.randint(1, 10))
+    growcutgrassamount = int(random.randint(1, 5))
     cutgrassbunch = cutgrassbunch + growcutgrassamount
     print(growcutgrassamount, "Cutgrass Bunches have grown")
     print("")
@@ -83,6 +83,7 @@ while prog == "y":
     atree = 0
   if giraffe > 2:
       makegiraffe = random.randint(1, 2)
+      giraffe = giraffe + makegiraffe
       print(makegiraffe, "Giraffes have been born")
       print("")
   if giraffe > atree:
@@ -90,6 +91,14 @@ while prog == "y":
 
   if zebra > 0:
     cutgrassbunch = cutgrassbunch - zebra
+  if cutgrassbunch < 0:
+    cutgrassbunch = 0
+  if zebra > 2:
+    makezebra = random.randint(1, 2)
+    zebra = zebra + makezebra
+    print(makezebra, "Zebras have been born")
+
+  
 
   giraffe = giraffe - lion
   if giraffe < 0:
@@ -104,14 +113,15 @@ while prog == "y":
   
 
 
-  points = atree + btree + giraffe + lion
+  points = atree + btree + giraffe + lion + zebra
 
-  liveanimals = lion + giraffe
+  liveanimals = lion + giraffe + zebra
     
 
   print("There are", atree, "Acacia trees left")
   print("There are", cutgrassbunch, "Cutgrass bunches left")
   print("There are", giraffe, "Giraffes left")
+  print("There are", zebra, "Zebras left")
   print("There are", lion, "Lions left")
   print("")
   print("You have", points, "points")
